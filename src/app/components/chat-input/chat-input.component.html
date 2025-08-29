@@ -1,0 +1,9 @@
+<div class="p-4 bg-gray-100">
+  <div class="flex">
+    <textarea class="flex-grow rounded-lg p-2 border" [(ngModel)]="inputValue"
+      (keydown.enter)="sendMessage()"></textarea>
+    <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg" (click)="sendMessage()" [disabled]="isLoading">
+      {{ isLoading ? 'Sending...' : 'Send' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="flex flex-col h-screen">
+  <nav class="bg-gray-800 p-4 text-white flex justify-between items-center">
+    <div class="text-lg font-bold">Gemini UI</div>
+    <div>
+      <a routerLink="/chat" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Chat</a>
+      <a routerLink="/config" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 ml-4">Config</a>
+    </div>
+  </nav>
+  <div class="flex-grow">
+    <router-outlet></router-outlet>
+  </div>
+</div>

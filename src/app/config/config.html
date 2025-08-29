@@ -1,0 +1,52 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">Gemini CLI Configuration</h2>
+
+  <div class="mb-4">
+    <label for="cliPath" class="block text-sm font-medium text-gray-700">Gemini CLI Path:</label>
+    <input
+      type="text"
+      id="cliPath"
+      [(ngModel)]="config.gemini_cli_path"
+      placeholder="e.g., C:\nvm4w\nodejs\gemini.ps1 or /usr/local/bin/gemini"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+    />
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-sm font-medium text-gray-700">Gemini CLI Arguments:</label>
+    <div class="flex space-x-2 mb-2">
+      <input
+        type="text"
+        [(ngModel)]="newArg"
+        placeholder="Add new argument (e.g., --model gemini-pro)"
+        class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        (keydown.enter)="addArg()"
+      />
+      <button
+        (click)="addArg()"
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+      >
+        Add
+      </button>
+    </div>
+    <div class="space-y-2">
+      <div *ngFor="let arg of config.gemini_cli_args; let i = index" class="flex items-center justify-between bg-gray-100 p-2 rounded-md">
+        <span>{{ arg }}</span>
+        <button
+          (click)="removeArg(i)"
+          class="text-red-600 hover:text-red-800"
+        >
+          Remove
+        </button>
+      </div>
+      <p *ngIf="config.gemini_cli_args.length === 0" class="text-gray-500 text-sm">No arguments added yet.</p>
+    </div>
+  </div>
+
+  <button
+    (click)="saveConfig()"
+    class="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+  >
+    Save Configuration
+  </button>
+</div>
