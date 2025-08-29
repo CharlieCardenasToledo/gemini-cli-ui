@@ -1,5 +1,5 @@
 <div class="flex mb-4" [ngClass]="{'justify-end': message.from === 'user', 'justify-start': message.from === 'gemini'}">
-  <div class="rounded-lg px-4 py-2"
+  <div class="prose rounded-lg px-4 py-2"
        [ngClass]="{
          'bg-blue-500 text-white': message.from === 'user' && message.status !== 'error',
          'bg-gray-200': message.from === 'gemini' && message.status !== 'error',
@@ -12,7 +12,7 @@
       <p>Error: {{ message.errorMessage || 'An unknown error occurred.' }}</p>
     </ng-container>
     <ng-container *ngIf="message.status === 'sent' || !message.status">
-      <p>{{ message.text }}</p>
+      <markdown [data]="message.text"></markdown>
     </ng-container>
   </div>
 </div>

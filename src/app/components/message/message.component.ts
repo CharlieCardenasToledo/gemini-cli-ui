@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown'; // Import MarkdownModule
 
 @Component({
   selector: 'app-message',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MarkdownModule], // Add MarkdownModule here
   templateUrl: './message.component.html',
   styleUrl: './message.component.css'
 })
